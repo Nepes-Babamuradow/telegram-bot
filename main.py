@@ -24,12 +24,12 @@ def start_knopka(message):
           etherem_knopka=types.InlineKeyboardButton("Etherem bahasy",callback_data="ethereum")
           klawiatura.add(bitcoin_knopka,litecoin_knopka,etherem_knopka)
           menin_botym.send_message(message.chat.id,"Haýsy kripto-walyutanyn bahasny owrensiniz gelyar?",reply_markup=klawiatura)
-          @menin_botym.callback_query_handler(func=lambda call:True)
-          def knopkalara_basylanda_jogap(callback):
-                if callback.massage:
-                    bahasy=crypto_bahalar(callback.data)
-                    menin_botym.send_message(callback.massage.chat.id,f"{bahasy}")
-                    start_knopka(callback.message)
-          menin_botym.polling()
+@menin_botym.callback_query_handler(func=lambda call:True)
+def knopkalara_basylanda_jogap(callback):
+    if callback.massage:
+        bahasy=crypto_bahalar(callback.data)
+        menin_botym.send_message(callback.massage.chat.id,f"{bahasy}")
+        start_knopka(callback.message)
+menin_botym.polling()
 
 
