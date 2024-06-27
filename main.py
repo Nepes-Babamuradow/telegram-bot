@@ -12,8 +12,7 @@ def crypto_bahalar(crypto):
          return data[crypto]["usd"]
     else:
          return"Bagyshlan kripto bahasyny owrenip bilmedim"
-bitcoin_bahasy=crypto_bahalar("bitcoin")
-print(f"Bitcoinin bahasy:{bitcoin_bahasy}$")
+
 menin_botym=telebot.TeleBot(token)
 @menin_botym.message_handler(commands=["start"])
 def start_knopka(message):
